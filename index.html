@@ -628,11 +628,19 @@
             setTimeout(function() { closeBtn.focus(); }, 450);
         }
 
-        function closeSat() {
+         function closeSat() {
             if (!isOpen) return; isOpen = false;
             overlay.classList.remove('active'); document.body.style.overflow = '';
             trigger.focus();
         }
 
         if (trigger) trigger.addEventListener('click', openSat);
-        if (c
+        if (closeBtn) closeBtn.addEventListener('click', closeSat);
+
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isOpen) closeSat();
+        });
+    })();
+    </script>
+</body>
+</html>
