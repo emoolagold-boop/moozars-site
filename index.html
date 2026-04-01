@@ -187,7 +187,7 @@
 
         .feature-card:hover .feature-detail { border-top-color: #1a2a1a; padding-top: 12px; }
 
-        /* Corporate */
+        /* Corporate / Legal sections */
         .legal {
             background: #050805; padding: 70px 20px; position: relative;
             border-top: 1px solid #1a1a1a;
@@ -219,6 +219,31 @@
             transition: color 0.2s, border-color 0.2s;
         }
         .legal-text a:hover { color: #00E5A0; border-color: #00E5A0; }
+
+        /* New section grids — mobile responsive */
+        .model-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .model-three-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .model-four-col {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .model-six-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
 
         /* Satellite Entry */
         .sat-entry {
@@ -354,6 +379,12 @@
             .section-title { font-size: 28px; }
             .feature-grid { grid-template-columns: 1fr; }
             .sat-close { top: 12px; right: 12px; }
+
+            /* New section grids — stack on portrait mobile */
+            .model-two-col { grid-template-columns: 1fr; }
+            .model-three-col { grid-template-columns: 1fr; }
+            .model-four-col { grid-template-columns: repeat(2, 1fr); }
+            .model-six-col { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
@@ -373,6 +404,7 @@
             </div>
             <nav class="header-nav">
                 <a href="#platform">Platform</a>
+                <a href="#model">Model</a>
                 <a href="privacy.html">Privacy</a>
             </nav>
         </div>
@@ -427,6 +459,152 @@
         </div>
     </section>
 
+    <!-- How It Works — NEW SECTION -->
+    <section class="legal reveal" id="model">
+        <div class="legal-content">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Stablecoin Settlement &amp; Tokenized Commodity Investment</p>
+
+            <!-- Row 1: Two cards -->
+            <div class="model-two-col" style="max-width: 1000px; margin: 0 auto;">
+                <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a;">
+                    <div class="legal-title" style="color: #00C896;">Stablecoin Settlement</div>
+                    <div class="legal-text" style="line-height: 1.8;">
+                        A stablecoin is a digital currency backed 1:1 by fiat currency or approved reserve 
+                        assets. It holds stable value &mdash; unlike volatile cryptocurrencies. MOOZARS 
+                        enables commodity trades to settle in seconds rather than the 2&ndash;5 days required 
+                        by traditional correspondent banking. Full reserve transparency. Blockchain-verified. 
+                        Counterparty risk eliminated at the point of settlement.
+                    </div>
+                </div>
+
+                <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a;">
+                    <div class="legal-title" style="color: #00C896;">Tokenized Capital Flow</div>
+                    <div class="legal-text" style="line-height: 1.8;">
+                        Tokenization converts ownership of a real-world asset into digital tokens on a 
+                        blockchain &mdash; enabling fractional ownership and instant transfer. MOOZARS 
+                        tokenizes commodity value at every stage of the supply chain: purchase, transport, 
+                        refining, and storage. Accredited investors fund each stage collectively, creating 
+                        new capital pathways into markets previously accessible only to established trading 
+                        houses.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supply Chain -->
+            <div style="max-width: 1000px; margin: 40px auto 0;">
+                <p style="font-size: 13px; color: #00C896; text-align: center; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;">
+                    Tokenized Supply Chain &mdash; Four Settlement Events Per Cargo
+                </p>
+                <div class="model-four-col">
+                    <div style="background: rgba(0,200,150,0.06); border: 1px solid rgba(0,200,150,0.15); border-radius: 6px; padding: 16px 10px; text-align: center;">
+                        <div style="font-size: 22px; margin-bottom: 6px;">&#x1F4B0;</div>
+                        <div style="font-size: 12px; color: #00C896; font-weight: 600; margin-bottom: 4px;">Purchase</div>
+                        <div style="font-size: 10px; color: #888; line-height: 1.5;">Commodity acquisition tokenized. Investors fund collectively.</div>
+                    </div>
+                    <div style="background: rgba(0,200,150,0.06); border: 1px solid rgba(0,200,150,0.15); border-radius: 6px; padding: 16px 10px; text-align: center;">
+                        <div style="font-size: 22px; margin-bottom: 6px;">&#x1F6A2;</div>
+                        <div style="font-size: 12px; color: #00C896; font-weight: 600; margin-bottom: 4px;">Transport</div>
+                        <div style="font-size: 10px; color: #888; line-height: 1.5;">Cargo in transit as tradeable tokens. Capital released.</div>
+                    </div>
+                    <div style="background: rgba(0,200,150,0.06); border: 1px solid rgba(0,200,150,0.15); border-radius: 6px; padding: 16px 10px; text-align: center;">
+                        <div style="font-size: 22px; margin-bottom: 6px;">&#x2699;&#xFE0F;</div>
+                        <div style="font-size: 12px; color: #00C896; font-weight: 600; margin-bottom: 4px;">Refining</div>
+                        <div style="font-size: 10px; color: #888; line-height: 1.5;">Refined product tokenized. Value-added captured.</div>
+                    </div>
+                    <div style="background: rgba(0,200,150,0.06); border: 1px solid rgba(0,200,150,0.15); border-radius: 6px; padding: 16px 10px; text-align: center;">
+                        <div style="font-size: 22px; margin-bottom: 6px;">&#x1F3ED;</div>
+                        <div style="font-size: 12px; color: #00C896; font-weight: 600; margin-bottom: 4px;">Storage</div>
+                        <div style="font-size: 10px; color: #888; line-height: 1.5;">Stored commodity as backed tokens. Liquid without sale.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Services: 6 cards in 3-col grid -->
+            <div style="max-width: 1000px; margin: 40px auto 0;">
+                <p style="font-size: 13px; color: #00C896; text-align: center; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;">
+                    Platform Services
+                </p>
+                <div class="model-six-col">
+                    <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a; padding: 22px;">
+                        <div class="legal-title" style="color: #00C896; font-size: 13px;">Issuance &amp; Redemption</div>
+                        <div class="legal-text" style="font-size: 12px; line-height: 1.7;">
+                            Fiat-backed stablecoin issuance and redemption. 1:1 reserve backed. Full 
+                            transparency. Compliant with HKMA, GENIUS Act, MiCA, and FSMA frameworks.
+                        </div>
+                    </div>
+
+                    <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a; padding: 22px;">
+                        <div class="legal-title" style="color: #00C896; font-size: 13px;">Cross-Border Settlement</div>
+                        <div class="legal-text" style="font-size: 12px; line-height: 1.7;">
+                            Instant settlement across jurisdictions. No correspondent banking delays. 
+                            No currency conversion risk. Blockchain-verified finality.
+                        </div>
+                    </div>
+
+                    <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a; padding: 22px;">
+                        <div class="legal-title" style="color: #00C896; font-size: 13px;">Reserve Transparency</div>
+                        <div class="legal-text" style="font-size: 12px; line-height: 1.7;">
+                            All stablecoin reserves held in approved instruments &mdash; fiat currency 
+                            and treasury assets. Auditable. Publicly verifiable on-chain.
+                        </div>
+                    </div>
+
+                    <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a; padding: 22px;">
+                        <div class="legal-title" style="color: #00C896; font-size: 13px;">AI Agent Payments</div>
+                        <div class="legal-text" style="font-size: 12px; line-height: 1.7;">
+                            Payment infrastructure for autonomous AI systems. Machine-to-machine 
+                            settlement. Nanopayments from $0.000001. Built for the agent economy.
+                        </div>
+                    </div>
+
+                    <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a; padding: 22px;">
+                        <div class="legal-title" style="color: #00C896; font-size: 13px;">Digital Asset Custody</div>
+                        <div class="legal-text" style="font-size: 12px; line-height: 1.7;">
+                            Institutional-grade custody for stablecoins, digital tokens, and tokenized 
+                            commodity assets. Hardware security. Multi-signature authorisation.
+                        </div>
+                    </div>
+
+                    <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a; padding: 22px;">
+                        <div class="legal-title" style="color: #00C896; font-size: 13px;">Compliance &amp; KYC</div>
+                        <div class="legal-text" style="font-size: 12px; line-height: 1.7;">
+                            Zero-knowledge proof identity verification. Sanctions screening. 
+                            AML compliance. Designed for regulated institutional operations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revenue Model + Asset Coverage -->
+            <div style="max-width: 1000px; margin: 40px auto 0;">
+                <div class="model-two-col">
+                    <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a;">
+                        <div class="legal-title" style="color: #00C896;">Revenue Model</div>
+                        <div class="legal-text" style="line-height: 1.8;">
+                            Transaction fees on every settlement processed. Custody fees for reserves 
+                            held. Interest earned on reserve assets held in treasury instruments &mdash; 
+                            the proven revenue model for stablecoin issuers globally. Four settlement 
+                            events per cargo multiplies fee revenue across the supply chain.
+                        </div>
+                    </div>
+
+                    <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a;">
+                        <div class="legal-title" style="color: #00C896;">Asset Coverage</div>
+                        <div class="legal-text" style="line-height: 1.8;">
+                            Petroleum &amp; energy. Metals &amp; mining. Agriculture. Carbon credits. 
+                            Renewable energy projects. Real estate. Art &amp; collectibles. The platform 
+                            is designed to be asset-class agnostic &mdash; the MOOZARS Class 36 trademark 
+                            covers tokenization across all major asset categories.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Corporate Information -->
     <section class="legal reveal">
         <div class="legal-content">
             <h2 class="section-title">Corporate Information</h2>
@@ -456,7 +634,7 @@
                     <div class="legal-title">Development Status</div>
                     <div class="legal-text">
                         Platform specification and regulatory application in preparation.
-                        Institutional partner and qualified investor enquiries welcome via info@moozars.com.
+                        Institutional partner and qualified investor enquiries welcome via <a href="mailto:info@moozars.com">info@moozars.com</a>.
                     </div>
                 </div>
             </div>
@@ -501,7 +679,7 @@
         <iframe id="satFrame" src="" title="Infrastructure Monitor" loading="lazy"></iframe>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
     (function() {
         'use strict';
 
@@ -626,7 +804,7 @@
             setTimeout(function() { closeBtn.focus(); }, 450);
         }
 
-         function closeSat() {
+        function closeSat() {
             if (!isOpen) return; isOpen = false;
             overlay.classList.remove('active'); document.body.style.overflow = '';
             trigger.focus();
@@ -641,3 +819,4 @@
     })();
     </script>
 </body>
+</html>
