@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOOZARS LTD — Secure Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #060609;
+            color: #d8d4cc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        ::selection { background: #00C896; color: #060609; }
+
+        header {
+            background: rgba(8,8,12,0.95);
+            border-bottom: 1px solid rgba(0,200,150,0.35);
+            padding: 20px;
+            backdrop-filter: blur(16px);
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #00C896, #00856A);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; font-weight: bold; color: #000;
+        }
+        .logo-text { font-size: 20px; font-weight: 700; color: #00C896; letter-spacing: 3px; }
+        .logo-sub { font-size: 10px; color: rgba(0,200,150,0.4); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+        .back-link { font-size: 12px; color: #666; text-decoration: none; letter-spacing: 0.5px; transition: color 0.3s; }
+        .back-link:hover { color: #00C896; }
+
+        .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+
+        .login-gate { max-width: 420px; width: 100%; text-align: center; }
+        .login-gate h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: #00C896; margin-bottom: 8px; }
+        .login-gate p { font-size: 13px; color: #777; margin-bottom: 30px; }
+        .login-field { display: flex; gap: 0; margin-bottom: 16px; }
+        .login-field input {
+            flex: 1; background: #111; border: 1px solid #2a2a2a; border-right: none;
+            border-radius: 6px 0 0 6px; padding: 14px 16px; font-size: 14px;
+            color: #d8d4cc; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.3s;
+        }
+        .login-field input:focus { border-color: #00C896; }
+        .login-field input::placeholder { color: #444; }
+        .login-field button {
+            background: linear-gradient(135deg, #00C896, #00856A); border: none;
+            border-radius: 0 6px 6px 0; padding: 14px 24px; font-size: 13px;
+            font-weight: 600; color: #000; cursor: pointer; letter-spacing: 1px; transition: opacity 0.3s;
+        }
+        .login-field button:hover { opacity: 0.85; }
+        .login-error { font-size: 12px; color: #cc4444; margin-top: -8px; margin-bottom: 12px; display: none; }
+        .login-note { font-size: 11px; color: #555; margin-top: 20px; line-height: 1.6; }
+
+        .portal { display: none; max-width: 900px; width: 100%; margin: 0 auto; }
+        .portal.active { display: block; }
+
+        .portal-header { text-align: center; margin-bottom: 40px; }
+        .portal-header h1 { font-family: 'Playfair Display', serif; font-size: 32px; color: #00C896; margin-bottom: 6px; }
+        .portal-header .role-badge {
+            display: inline-block; background: rgba(0,200,150,0.1); border: 1px solid rgba(0,200,150,0.3);
+            color: #00C896; padding: 6px 18px; border-radius: 20px; font-size: 11px;
+            font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;
+        }
+
+        .section-title {
+            font-size: 13px; color: #00C896; letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,200,150,0.1);
+        }
+
+        .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
+        .doc-card {
+            background: #111; border: 1px solid #1e1e1e; border-radius: 8px;
+            padding: 18px; cursor: pointer; transition: all 0.3s; text-decoration: none;
+        }
+        .doc-card:hover {
+            border-color: #00C896; transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,200,150,0.15);
+        }
+        .doc-name { font-size: 13px; color: #d8d4cc; font-weight: 500; margin-bottom: 4px; }
+        .doc-type { font-size: 11px; color: #666; }
+        .doc-icon { font-size: 20px; margin-bottom: 8px; }
+
+        .message-box {
+            background: #111; border: 1px solid #1e1e1e; border-radius: 8px;
+            padding: 24px; margin-bottom: 36px;
+        }
+        .message-box h3 { font-size: 14px; color: #00C896; margin-bottom: 12px; }
+        .message-box textarea {
+            width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 6px;
+            padding: 12px; font-size: 13px; color: #d8d4cc; font-family: 'DM Sans', sans-serif;
+            resize: vertical; min-height: 80px; outline: none; margin-bottom: 12px;
+        }
+        .message-box textarea:focus { border-color: #00C896; }
+        .message-box button {
+            background: linear-gradient(135deg, #00C896, #00856A); border: none;
+            border-radius: 6px; padding: 10px 24px; font-size: 12px;
+            font-weight: 600; color: #000; cursor: pointer; letter-spacing: 1px;
+        }
+        .msg-sent { font-size: 12px; color: #00C896; display: none; margin-top: 8px; }
+
+        .portal-footer { text-align: center; padding: 20px 0; border-top: 1px solid #1e1e1e; margin-top: 20px; }
+        .portal-footer p { font-size: 11px; color: #555; }
+        .logout-btn {
+            background: none; border: 1px solid #333; border-radius: 4px;
+            padding: 6px 16px; font-size: 11px; color: #777; cursor: pointer;
+            margin-top: 8px; transition: all 0.3s;
+        }
+        .logout-btn:hover { border-color: #00C896; color: #00C896; }
+
+        @media (max-width: 600px) {
+            .doc-grid { grid-template-columns: 1fr; }
+            .portal-header h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo-area">
+                <div class="logo">M</div>
+                <div>
+                    <div class="logo-text">MOOZARS</div>
+                    <div class="logo-sub">Secure Portal</div>
+                </div>
+            </div>
+            <a href="https://moozars.com" class="back-link">&larr; moozars.com</a>
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="login-gate" id="loginGate">
+            <h1>Secure Access</h1>
+            <p>Enter your access code to continue</p>
+            <div class="login-field">
+                <input type="password" id="passInput" placeholder="Access code" autocomplete="off">
+                <button onclick="attemptLogin()">ENTER</button>
+            </div>
+            <div class="login-error" id="loginError">Invalid access code. Please try again.</div>
+            <p class="login-note">
+                This area is restricted to authorised agents and approved investors of MOOZARS LTD.<br>
+                If you require access, contact <a href="mailto:info@moozars.com" style="color:#00C896;">info@moozars.com</a>
+            </p>
+        </div>
+
+        <!-- Agent Portal -->
+        <div class="portal" id="agentPortal">
+            <div class="portal-header">
+                <h1>Agent Portal</h1>
+                <div class="role-badge">Authorised Introduction Agent</div>
+            </div>
+
+            <div class="section-title">Your Documents</div>
+            <div class="doc-grid">
+                <a class="doc-card" href="mailto:info@moozars.com?subject=Document%20Request%20-%20Agent%20Guide">
+                    <div class="doc-icon">📋</div>
+                    <div class="doc-name">Agent Introduction Guide</div>
+                    <div class="doc-type">What to say, who to approach, legal position</div>
+                </a>
+                <a class="doc-card" href="mailto:info@moozars.com?subject=Document%20Request%20-%20MOOZARS%20Teaser">
+                    <div class="doc-icon">📄</div>
+                    <div class="doc-name">MOOZARS Teaser</div>
+                    <div class="doc-type">One-page investment summary</div>
+                </a>
+                <a class="doc-card" href="mailto:info@moozars.com?subject=Document%20Request%20-%20Self%20Cert">
+                    <div class="doc-icon">✅</div>
+                    <div class="doc-name">Investor Self-Certification Forms</div>
+                    <div class="doc-type">Article 48 (HNW) &amp; Article 50A (Sophisticated)</div>
+                </a>
+                <a class="doc-card" href="mailto:info@moozars.com?subject=Document%20Request%20-%20NCNDA">
+                    <div class="doc-icon">🔒</div>
+                    <div class="doc-name">NCNDA Template</div>
+                    <div class="doc-type">Non-Circumvention, Non-Disclosure Agreement</div>
+                </a>
+            </div>
+
+            <div class="section-title">Quick Reference</div>
+            <div class="doc-grid">
+                <div class="doc-card" style="cursor:default;">
+                    <div class="doc-name" style="color:#00C896;">MOOZARS — Stablecoin Settlement</div>
+                    <div class="doc-type" style="line-height:1.6; margin-top:6px;">
+                        Tokenized commodity settlement. HKMA licence (global).<br>
+                        Seeking $3,750,000 ($2.5M escrow returnable).<br>
+                        Investment via EMOOLA LTD bank account.<br>
+                        Website: <a href="https://moozars.com" style="color:#00C896;">moozars.com</a>
+                    </div>
+                </div>
+                <div class="doc-card" style="cursor:default;">
+                    <div class="doc-name" style="color:#00C896;">Investor Criteria</div>
+                    <div class="doc-type" style="line-height:1.6; margin-top:6px;">
+                        Minimum investment: $25,000<br>
+                        Must qualify as HNW (GBP 100K income or GBP 250K assets)<br>
+                        OR Sophisticated (angel network, PE experience, or director of GBP 1M+ co.)
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">Contact Management</div>
+            <div class="message-box">
+                <h3>Message to MOOZARS Management</h3>
+                <textarea id="agentMsg" placeholder="Submit an introduction, ask a question, or request documents..."></textarea>
+                <button onclick="sendMessage('agentMsg')">SEND MESSAGE</button>
+                <div class="msg-sent" id="agentMsgSent">Message received. We will respond within 24 hours.</div>
+            </div>
+
+            <div class="portal-footer">
+                <p>MOOZARS LTD | Company No. 14157790 | Aston House, Newcastle Upon Tyne, NE5 1NB</p>
+                <button class="logout-btn" onclick="logout()">LOG OUT</button>
+            </div>
+        </div>
+
+        <!-- Investor Portal -->
+        <div class="portal" id="investorPortal">
+            <div class="portal-header">
+                <h1>Investor Portal</h1>
+                <div class="role-badge">Approved Investor Access</div>
+            </div>
+
+            <div class="section-title">Investment Documents</div>
+            <div class="doc-grid">
+                <a class="doc-card" href="mailto:info@moozars.com?subject=Document%20Request%20-%20Memorandum">
+                    <div class="doc-icon">📊</div>
+                    <div class="doc-name">MOOZARS Investment Memorandum</div>
+                    <div class="doc-type">Stablecoin Settlement — full memorandum</div>
+                </a>
+                <a class="doc-card" href="mailto:info@moozars.com?subject=Document%20Request%20-%20Forecast">
+                    <div class="doc-icon">📈</div>
+                    <div class="doc-name">MOOZARS 5-Year Forecast</div>
+                    <div class="doc-type">Financial model — adjustable assumptions</div>
+                </a>
+                <a class="doc-card" href="mailto:info@moozars.com?subject=Document%20Request%20-%20Term%20Sheet">
+                    <div class="doc-icon">💰</div>
+                    <div class="doc-name">Seed Term Sheet</div>
+                    <div class="doc-type">Draft investment terms — via EMOOLA LTD</div>
+                </a>
+                <a class="doc-card" href="mailto:info@moozars.com?subject=Document%20Request%20-%20Loan%20Agreement">
+                    <div class="doc-icon">📝</div>
+                    <div class="doc-name">Loan Agreement Template</div>
+                    <div class="doc-type">For review by your solicitor</div>
+                </a>
+            </div>
+
+            <div class="section-title">Company Information</div>
+            <div class="doc-grid">
+                <a class="doc-card" href="https://moozars.com" target="_blank">
+                    <div class="doc-icon">🌐</div>
+                    <div class="doc-name">MOOZARS Website</div>
+                    <div class="doc-type">moozars.com — Tokenized Settlement</div>
+                </a>
+                <a class="doc-card" href="https://find-and-update.company-information.service.gov.uk/company/14157790" target="_blank">
+                    <div class="doc-icon">🏛</div>
+                    <div class="doc-name">Companies House</div>
+                    <div class="doc-type">MOOZARS LTD — Co. 14157790</div>
+                </a>
+            </div>
+
+            <div class="section-title">Contact</div>
+            <div class="message-box">
+                <h3>Message to MOOZARS Management</h3>
+                <textarea id="investorMsg" placeholder="Ask a question, request additional information, or schedule a call..."></textarea>
+                <button onclick="sendMessage('investorMsg')">SEND MESSAGE</button>
+                <div class="msg-sent" id="investorMsgSent">Message received. We will respond within 24 hours.</div>
+            </div>
+
+            <div class="portal-footer">
+                <p>MOOZARS LTD | Company No. 14157790 | Aston House, Newcastle Upon Tyne, NE5 1NB</p>
+                <button class="logout-btn" onclick="logout()">LOG OUT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        var AGENT_CODE = 'moozars-agent-2026';
+        var INVESTOR_CODE = 'moozars-invest-2026';
+
+        var passInput = document.getElementById('passInput');
+        passInput.addEventListener('keypress', function(e){
+            if(e.key === 'Enter') attemptLogin();
+        });
+
+        window.attemptLogin = function(){
+            var code = passInput.value.trim().toLowerCase();
+            var error = document.getElementById('loginError');
+            if(code === AGENT_CODE){
+                document.getElementById('loginGate').style.display = 'none';
+                document.getElementById('agentPortal').classList.add('active');
+                error.style.display = 'none';
+            } else if(code === INVESTOR_CODE){
+                document.getElementById('loginGate').style.display = 'none';
+                document.getElementById('investorPortal').classList.add('active');
+                error.style.display = 'none';
+            } else {
+                error.style.display = 'block';
+                passInput.value = '';
+                passInput.focus();
+            }
+        };
+
+        window.logout = function(){
+            document.getElementById('agentPortal').classList.remove('active');
+            document.getElementById('investorPortal').classList.remove('active');
+            document.getElementById('loginGate').style.display = 'block';
+            passInput.value = '';
+        };
+
+        window.sendMessage = function(id){
+            var textarea = document.getElementById(id);
+            var msg = textarea.value.trim();
+            if(!msg) return;
+            var subject = encodeURIComponent('Portal Message - ' + (id.includes('agent') ? 'Agent' : 'Investor'));
+            var body = encodeURIComponent(msg);
+            window.location.href = 'mailto:info@moozars.com?subject=' + subject + '&body=' + body;
+            textarea.value = '';
+            document.getElementById(id + 'Sent').style.display = 'block';
+            setTimeout(function(){ document.getElementById(id + 'Sent').style.display = 'none'; }, 5000);
+        };
+    })();
+    </script>
+</body>
+</html>
