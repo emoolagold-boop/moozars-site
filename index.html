@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MOOZARS LTD — Commodity settlement infrastructure in development for global petroleum, energy, and commodity markets.">
-    <meta name="keywords" content="stablecoin settlement, petroleum trading, commodity settlement, satellite payment processing, maritime, energy markets, HKMA, fintech infrastructure">
-    <title>MOOZARS — Commodity Settlement Infrastructure</title>
+    <meta name="description" content="MOOZARS LTD — Regulated settlement infrastructure in development for tokenised energy and real-world assets.">
+    <meta name="keywords" content="tokenised real-world assets, tokenised energy, settlement infrastructure, energy markets, commodities, HKMA, fintech infrastructure">
+    <title>MOOZARS — Tokenised Real-World Asset Settlement Infrastructure</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2300E5A0'/%3E%3Ctext x='50' y='72' font-family='Arial,sans-serif' font-size='70' font-weight='bold' fill='%23000' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,26 +65,6 @@
         .model-four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
         .model-six-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .model-six-col > div:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: 50%; }
-        .sat-entry { padding: 70px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000000; border-top: 1px solid #1a1a1a; position: relative; }
-        .sat-entry::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 229, 160, 0.06), transparent); }
-        .sat-trigger { position: relative; width: 200px; height: 200px; cursor: pointer; background: none; border: none; outline: none; }
-        .sat-trigger:focus-visible { outline: 1px solid #00E5A0; outline-offset: 12px; border-radius: 50%; }
-        .sat-canvas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; border-radius: 50%; }
-        .sat-ring-outer { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; border: 1px solid rgba(0, 229, 160, 0.2); border-radius: 50%; transition: border-color 0.6s ease; }
-        .sat-orbit { position: absolute; width: 72%; height: 72%; top: 14%; left: 14%; border: 1px solid rgba(0, 229, 160, 0.04); border-radius: 50%; animation: sat-spin 20s linear infinite; }
-        .sat-dot { position: absolute; width: 4px; height: 4px; background: #00E5A0; border-radius: 50%; top: -2px; left: 50%; margin-left: -2px; opacity: 1; box-shadow: 0 0 14px rgba(0, 229, 160, 0.6); transition: opacity 0.5s; }
-        .sat-orbit-2 { position: absolute; width: 88%; height: 88%; top: 6%; left: 6%; border: 1px solid rgba(0, 229, 160, 0.03); border-radius: 50%; animation: sat-spin 35s linear reverse infinite; }
-        .sat-dot-2 { position: absolute; width: 3px; height: 3px; background: #00E5A0; border-radius: 50%; bottom: -1.5px; left: 50%; margin-left: -1.5px; opacity: 0.7; box-shadow: 0 0 6px rgba(0, 229, 160, 0.3); transition: opacity 0.5s; }
-        @keyframes sat-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .sat-hint { margin-top: 20px; font-size: 11px; color: #333; letter-spacing: 2px; text-transform: uppercase; opacity: 0; transition: opacity 0.4s ease; animation: delayedFadeIn 0.6s ease 1.5s forwards; }
-        @keyframes delayedFadeIn { to { opacity: 0.6; } }
-        .sat-entry:hover .sat-hint { opacity: 1; }
-        .sat-overlay { position: fixed; inset: 0; z-index: 10000; background: #000000; opacity: 0; visibility: hidden; transition: opacity 0.45s ease, visibility 0.45s ease; }
-        .sat-overlay.active { opacity: 1; visibility: visible; }
-        .sat-overlay iframe { width: 100%; height: 100%; border: none; opacity: 0; transition: opacity 0.35s ease 0.15s; }
-        .sat-overlay.active iframe { opacity: 1; }
-        .sat-close { position: absolute; top: 20px; right: 20px; z-index: 10001; width: 44px; height: 44px; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(8px); border: 1px solid #2a2a2a; border-radius: 6px; color: #888; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: color 0.2s, border-color 0.2s; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 300; }
-        .sat-close:hover { color: #00E5A0; border-color: rgba(0, 229, 160, 0.3); }
         footer { background: #000000; padding: 40px 20px; border-top: 1px solid #1a1a1a; margin-top: auto; }
         .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
         .footer-company { font-size: 16px; color: #00E5A0; margin-bottom: 15px; font-weight: 600; }
@@ -105,7 +86,6 @@
             .product-showcase { padding: 30px 20px; }
             .section-title { font-size: 28px; }
             .feature-grid { grid-template-columns: 1fr; }
-            .sat-close { top: 12px; right: 12px; }
             .model-two-col { grid-template-columns: 1fr; }
             .model-four-col { grid-template-columns: repeat(2, 1fr); }
             .model-six-col { grid-template-columns: 1fr; }
@@ -122,7 +102,7 @@
                 <div class="logo">M</div>
                 <div>
                     <div class="company-name">MOOZARS<sup style="font-weight:400; font-size:12px;">™</sup></div>
-                    <div class="tagline">Commodity Settlement Infrastructure</div>
+                    <div class="tagline">Real-World Asset Settlement Infrastructure</div>
                 </div>
             </div>
             <nav class="header-nav">
@@ -132,28 +112,35 @@
             </nav>
         </div>
     </header>
-
+ 
     <section class="hero reveal">
         <div class="hero-content">
-            <h1>Petroleum. Commodities.<br><span>Settled in Seconds.</span></h1>
-            <div class="hero-oneliner">Commodity settlement infrastructure in development for the petroleum and energy supply chain</div>
-            <p>Building payment infrastructure for the petroleum and commodity supply chain. Stablecoin settlement. Tokenized capital flow. Satellite-resilient. Further information available on request &mdash; contact <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;">&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;</a></p>
+            <h1>Regulated settlement infrastructure for <span>tokenised energy and real-world assets.</span></h1>
+            <div class="hero-oneliner">Turning energy cargoes and other real assets into asset-backed digital tokens &mdash; funded by many, settled in seconds, intended to operate under a Hong Kong licence (not yet applied for). In development.</div>
+            <p>Further information available on request &mdash; contact <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;">&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;</a></p>
         </div>
     </section>
-
+ 
     <section class="product reveal" id="platform">
         <div class="product-content">
             <h2 class="section-title">Our Platform</h2>
-            <p class="section-subtitle">In Development &mdash; Commodity Settlement Infrastructure</p>
-
+            <p class="section-subtitle">In Development &mdash; Real-World Asset Settlement Infrastructure</p>
+ 
             <div class="product-showcase">
-                <div class="product-name">Commodity Settlement Infrastructure</div>
+                <div class="product-name">Real-World Asset Settlement Infrastructure</div>
                 <p class="product-description">
-                    Designing payment infrastructure for global commodity markets. The platform is intended to enable
-                    stablecoin settlement at every stage of the supply chain &mdash; from purchase through
-                    transport, refining, and storage. Platform is in development; no operational service is currently offered.
+                    MOOZARS is building regulated infrastructure to tokenise real-world assets &mdash; starting with energy
+                    and commodities, and extending to property and other assets. Each token is designed to be backed by a
+                    share of the real asset, settled using a regulated stablecoin. Platform is in development; no operational
+                    service is currently offered.
                 </p>
-
+ 
+                <p class="product-description" style="margin-top: 14px;">
+                    <strong>How the return works (intended design):</strong> a cargo is funded by many participants together;
+                    the seller is paid at once, and proceeds return to token holders when the cargo settles. The same method
+                    is intended to extend to other real-world assets.
+                </p>
+ 
                 <div class="feature-grid">
                     <div class="feature-card">
                         <div class="feature-icon">&#x1F4B0;</div>
@@ -161,30 +148,37 @@
                         <div class="feature-text">Designed to enable fiat-backed stablecoin settlement for petroleum and commodity trades. Intended to reduce settlement from days to seconds.</div>
                         <div class="feature-detail">The platform is designed around stablecoins backed 1:1 by fiat currency, with full reserve transparency as an intended feature of the architecture. No operational service is currently available.</div>
                     </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">&#x1F6F0;&#xFE0F;</div>
-                        <div class="feature-title">Satellite-Resilient Settlement</div>
-                        <div class="feature-text">Designed to continue settlement via satellite when terrestrial networks are unavailable. Intended for maritime, offshore, and remote operations.</div>
-                        <div class="feature-detail">The architecture is planned around redundant connectivity to maintain settlement continuity across varied operating conditions. This is a design intention, not a current capability.</div>
-                    </div>
-
+ 
                     <div class="feature-card">
                         <div class="feature-icon">&#x1F510;</div>
                         <div class="feature-title">Secure Infrastructure</div>
-                        <div class="feature-text">Architecture designed around institutional-grade encryption and custody standards, intended for regulated commodity settlement environments.</div>
+                        <div class="feature-text">Architecture designed around institutional-grade encryption and custody standards, intended for regulated settlement environments.</div>
                         <div class="feature-detail">The platform is being designed with reference to institutional key management and compliant data handling standards. These are design principles, not currently operational features.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+ 
+    <section class="legal reveal" id="liquidity" style="scroll-margin-top: 90px;">
+        <div class="legal-content">
+            <h2 class="section-title">Built on an asset that is already liquid</h2>
+            <div class="legal-section" style="max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a;">
+                <div class="legal-text" style="line-height: 1.8; font-size: 15px;">
+                    Tokenising an asset makes it easier to divide and move, but it cannot create a market &mdash; tokens are only
+                    valuable if there are real buyers for the asset beneath them. Energy is one of the deepest, most actively traded
+                    markets in the world. The buyers and sellers already exist. MOOZARS tokenises assets that are already liquid
+                    &mdash; it connects to demand rather than inventing it.
+                </div>
+            </div>
+        </div>
+    </section>
+ 
     <section class="legal reveal" id="model" style="scroll-margin-top: 90px;">
         <div class="legal-content">
             <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Stablecoin Settlement &amp; Tokenized Commodity Capital</p>
-
+            <p class="section-subtitle">Stablecoin Settlement &amp; Tokenised Real-World Assets</p>
+ 
             <div class="model-two-col" style="max-width: 1000px; margin: 0 auto;">
                 <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a;">
                     <div class="legal-title" style="color: #00C896;">Stablecoin Settlement</div>
@@ -197,7 +191,7 @@
                         reduced at the point of settlement.
                     </div>
                 </div>
-
+ 
                 <div class="legal-section" style="background: linear-gradient(135deg, #1a1a1a 0%, #151515 100%); border-color: #2a2a2a;">
                     <div class="legal-title" style="color: #00C896;">Tokenized Capital Flow</div>
                     <div class="legal-text" style="line-height: 1.8;">
@@ -209,7 +203,7 @@
                     </div>
                 </div>
             </div>
-
+ 
             <div style="max-width: 1000px; margin: 40px auto 0;">
                 <p style="font-size: 13px; color: #00C896; text-align: center; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;">
                     Tokenized Supply Chain &mdash; Four Settlement Events Per Cargo
@@ -237,7 +231,7 @@
                     </div>
                 </div>
             </div>
-
+ 
             <div style="max-width: 1000px; margin: 40px auto 0;">
                 <p style="font-size: 13px; color: #00C896; text-align: center; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;">
                     Platform Services — Designed Capabilities
@@ -290,22 +284,22 @@
             </div>
         </div>
     </section>
-
+ 
     <section class="legal reveal">
         <div class="legal-content">
             <h2 class="section-title">Corporate Information</h2>
-
+ 
             <div class="legal-grid">
                 <div class="legal-section">
                     <div class="legal-title">Company Registration</div>
                     <div class="legal-text">
                         MOOZARS LTD is incorporated in England &amp; Wales as a financial technology
-                        infrastructure company, developing stablecoin settlement infrastructure for petroleum,
-                        energy, and commodity markets.
+                        infrastructure company, developing settlement infrastructure for tokenised energy,
+                        commodities, and other real-world assets.
                         Verify via <a href="https://data.companieshouse.gov.uk/doc/company/14157790" target="_blank" rel="noopener noreferrer">Companies House</a>.
                     </div>
                 </div>
-
+ 
                 <div class="legal-section">
                     <div class="legal-title">Regulatory Pathway</div>
                     <div class="legal-text">
@@ -318,7 +312,7 @@
                         UK trademark protection is registered across 115 financial service terms (Class 36).
                     </div>
                 </div>
-
+ 
                 <div class="legal-section">
                     <div class="legal-title">Development Status</div>
                     <div class="legal-text">
@@ -330,17 +324,8 @@
             </div>
         </div>
     </section>
-
-    <div class="sat-entry">
-        <button class="sat-trigger" id="satTrigger" aria-label="Open infrastructure concept visualisation" title="Infrastructure Concept">
-            <canvas class="sat-canvas" id="miniGlobe"></canvas>
-            <div class="sat-ring-outer"></div>
-            <div class="sat-orbit"><div class="sat-dot"></div></div>
-            <div class="sat-orbit-2"><div class="sat-dot-2"></div></div>
-        </button>
-        <div class="sat-hint">Infrastructure Concept</div>
-    </div>
-
+ 
+ 
     <footer>
         <div class="footer-content">
             <div class="footer-company">MOOZARS LTD</div>
@@ -361,12 +346,8 @@
             <div class="footer-copyright">&copy; 2022&ndash;2026 MOOZARS LTD. All Rights Reserved. Registered in England &amp; Wales.</div>
         </div>
     </footer>
-
-    <div class="sat-overlay" id="satOverlay" role="dialog" aria-modal="true" aria-label="Infrastructure concept visualisation">
-        <button class="sat-close" id="satClose" aria-label="Close">&times;</button>
-        <iframe id="satFrame" src="" title="Infrastructure Concept Visualisation" loading="lazy"></iframe>
-    </div>
-
+ 
+ 
     <script>
     (function() {
         'use strict';
@@ -375,128 +356,8 @@
             entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.08 });
         els.forEach(function(el) { obs.observe(el); });
-
-        var overlay = document.getElementById('satOverlay');
-        var trigger = document.getElementById('satTrigger');
-        var closeBtn = document.getElementById('satClose');
-        var frame = document.getElementById('satFrame');
-        var appUrl = 'https://moozars-satellite.vercel.app/';
-        var isOpen = false;
-        var miniCanvas = document.getElementById('miniGlobe');
-        var mctx = miniCanvas ? miniCanvas.getContext('2d') : null;
-        var miniTime = 0;
-        var miniHover = false;
-
-        if(trigger){
-            trigger.addEventListener('mouseenter', function(){ miniHover = true; });
-            trigger.addEventListener('mouseleave', function(){ miniHover = false; });
-        }
-
-        function resizeMini(){
-            if(!miniCanvas) return;
-            var rect = miniCanvas.getBoundingClientRect();
-            var dpr = Math.min(window.devicePixelRatio || 1, 2);
-            miniCanvas.width = rect.width * dpr;
-            miniCanvas.height = rect.height * dpr;
-            mctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
-        resizeMini();
-        window.addEventListener('resize', resizeMini);
-
-        var miniLandPts = [];
-        var miniRegions = [
-            {latMin:25,latMax:65,lngMin:-120,lngMax:-65,n:25},
-            {latMin:-50,latMax:10,lngMin:-75,lngMax:-38,n:18},
-            {latMin:36,latMax:65,lngMin:-8,lngMax:38,n:20},
-            {latMin:-30,latMax:35,lngMin:-15,lngMax:48,n:22},
-            {latMin:15,latMax:65,lngMin:62,lngMax:140,n:25},
-            {latMin:-38,latMax:-14,lngMin:114,lngMax:150,n:10}
-        ];
-        function pseudoRand(s){return((Math.sin(s)*10000)%1+1)%1}
-        for(var ri=0;ri<miniRegions.length;ri++){
-            var rg=miniRegions[ri];
-            for(var pi=0;pi<rg.n;pi++){
-                var seed=rg.latMin*1000+rg.lngMin*100+pi;
-                miniLandPts.push({
-                    lat:(rg.latMin+pseudoRand(seed)*(rg.latMax-rg.latMin))*Math.PI/180,
-                    lng:(rg.lngMin+pseudoRand(seed*2.7)*(rg.lngMax-rg.lngMin))*Math.PI/180
-                });
-            }
-        }
-
-        function drawMiniGlobe(){
-            if(!mctx || isOpen) { miniTime+=0.016; requestAnimationFrame(drawMiniGlobe); return; }
-            var rect = miniCanvas.getBoundingClientRect();
-            var w=rect.width, h=rect.height;
-            var mcx=w/2, mcy=h/2, r=Math.min(w,h)*0.38;
-            mctx.clearRect(0,0,w,h);
-            var rotY=miniTime*0.3, tilt=-0.3;
-            var cosR=Math.cos(rotY),sinR=Math.sin(rotY),cosT=Math.cos(tilt),sinT=Math.sin(tilt);
-            var ha=miniHover?1.8:1;
-
-            function proj(lat,lng){
-                var x3=r*Math.cos(lat)*Math.sin(lng),y3=r*Math.sin(lat),z3=r*Math.cos(lat)*Math.cos(lng);
-                var x1=x3*cosR+z3*sinR,z1=-x3*sinR+z3*cosR;
-                var y1=y3*cosT-z1*sinT,z2=y3*sinT+z1*cosT;
-                return{x:mcx+x1,y:mcy-y1,z:z2,v:z2>0};
-            }
-
-            mctx.beginPath(); mctx.arc(mcx,mcy,r,0,Math.PI*2);
-            mctx.strokeStyle='rgba(0,229,160,'+(0.04*ha)+')'; mctx.lineWidth=0.5; mctx.stroke();
-
-            for(var lng=-180;lng<180;lng+=40){
-                mctx.beginPath(); var started=false;
-                for(var lat=-90;lat<=90;lat+=5){
-                    var p=proj(lat*Math.PI/180,lng*Math.PI/180);
-                    if(p.v){if(!started){mctx.moveTo(p.x,p.y);started=true;}else mctx.lineTo(p.x,p.y);}
-                    else started=false;
-                }
-                mctx.strokeStyle='rgba(0,229,160,'+(0.025*ha)+')'; mctx.lineWidth=0.4; mctx.stroke();
-            }
-
-            for(var lat2=-60;lat2<=60;lat2+=30){
-                mctx.beginPath(); var started2=false;
-                for(var lng2=0;lng2<=360;lng2+=5){
-                    var p2=proj(lat2*Math.PI/180,lng2*Math.PI/180);
-                    if(p2.v){if(!started2){mctx.moveTo(p2.x,p2.y);started2=true;}else mctx.lineTo(p2.x,p2.y);}
-                    else started2=false;
-                }
-                mctx.strokeStyle='rgba(0,229,160,'+(0.018*ha)+')'; mctx.lineWidth=0.4; mctx.stroke();
-            }
-
-            for(var li=0;li<miniLandPts.length;li++){
-                var lp=proj(miniLandPts[li].lat,miniLandPts[li].lng);
-                if(!lp.v) continue;
-                var depth=Math.max(0,lp.z/r);
-                mctx.fillStyle='rgba(0,229,160,'+((0.06+depth*0.18)*ha)+')';
-                mctx.fillRect(lp.x-0.6,lp.y-0.6,1.2,1.2);
-            }
-
-            if(miniHover){
-                var grd=mctx.createRadialGradient(mcx,mcy,0,mcx,mcy,r);
-                grd.addColorStop(0,'rgba(0,229,160,0.03)'); grd.addColorStop(1,'transparent');
-                mctx.fillStyle=grd; mctx.beginPath(); mctx.arc(mcx,mcy,r,0,Math.PI*2); mctx.fill();
-            }
-
-            miniTime+=0.016; requestAnimationFrame(drawMiniGlobe);
-        }
-        drawMiniGlobe();
-
-        function openSat() {
-            if (isOpen) return; isOpen = true;
-            if (!frame.getAttribute('src') || frame.getAttribute('src') === '') frame.setAttribute('src', appUrl);
-            overlay.classList.add('active'); document.body.style.overflow = 'hidden';
-            setTimeout(function() { closeBtn.focus(); }, 450);
-        }
-        function closeSat() {
-            if (!isOpen) return; isOpen = false;
-            overlay.classList.remove('active'); document.body.style.overflow = '';
-            trigger.focus();
-        }
-        if (trigger) trigger.addEventListener('click', openSat);
-        if (closeBtn) closeBtn.addEventListener('click', closeSat);
-        window.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isOpen) closeSat(); });
     })();
     </script>
 </body>
 </html>
+ 
