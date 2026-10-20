@@ -10,7 +10,7 @@
   img { max-width: 100%; height: auto; }
   [hidden] { display: none !important; }
 </style>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230E2148%27/%3E%3Ctext x=%2732%27 y=%2745%27 font-family=%27Georgia,serif%27 font-size=%2740%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27%23D9B25A%27%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23FFFFFF%27 stroke=%27%230E2148%27 stroke-width=%273%27/%3E%3Ctext x=%2732%27 y=%2750%27 font-family=%27Georgia,serif%27 font-size=%2752%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27%230E2148%27%3EM%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#0E2148">
 <title>Privacy Policy — MOOZARS</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -18,171 +18,132 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: single-column mobile-first site; full-bleed navy bands with centred max-width inner wrappers; gold hairline accents */
+/* Layout: single-column legal page in the MOOZARS identity; navy header band, readable measure */
 :root{
   --navy:#0E2148; --navy-2:#14346B; --ink:#1B2430; --paper:#FBFCFE;
-  --muted:#5A6676; --line:#E2E8F1; --gold:#B8923A; --gold-soft:#D9B25A;
-  --green:#2E6B45; --green-bg:#EAF4EC; --card:#F4F7FB;
-  --band:#0E2148; --on-navy:#DCE6F5;
-  --maxw:1000px;
+  --muted:#5A6676; --line:#E2E8F1; --gold:#B8923A; --gold-soft:#D9B25A; --card:#F4F7FB;
+  --band:#0E2148; --on-navy:#DCE6F5; --maxw:760px;
   --display:"Fraunces", Georgia, "Times New Roman", serif;
   --body:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --paper:#0C1119; --ink:#E6ECF5; --muted:#9FB0C4; --line:#223047; --card:#121A28;
-  --green-bg:#122017; color-scheme:dark;
+  --paper:#0C1119; --ink:#E6ECF5; --muted:#9FB0C4; --line:#223047; --card:#121A28; color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --paper:#0C1119; --ink:#E6ECF5; --muted:#9FB0C4; --line:#223047; --card:#121A28;
-  --green-bg:#122017; color-scheme:dark;
+  --paper:#0C1119; --ink:#E6ECF5; --muted:#9FB0C4; --line:#223047; --card:#121A28; color-scheme:dark;
 }
 *{box-sizing:border-box;}
-body{background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.6; margin:0;
+body{background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.65; margin:0;
   -webkit-font-smoothing:antialiased;}
-h1,h2,h3{font-family:var(--display); font-weight:600; line-height:1.12; text-wrap:balance; margin:0;}
-p{margin:0;}
-a{color:inherit;}
+a{color:var(--navy);}
+:root[data-theme="dark"] a, :root:not([data-theme="light"]) a{color:var(--gold-soft);}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) a{color:var(--gold-soft);}}
 .wrap{max-width:var(--maxw); margin:0 auto;
   padding-left:max(20px, env(safe-area-inset-left,0px)); padding-right:max(20px, env(safe-area-inset-right,0px));}
-.eyebrow{font-family:var(--body); font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); font-weight:600;}
 
-/* ---- top bar ---- */
 .nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:var(--band);
   border-bottom:1px solid rgba(255,255,255,.08);}
 body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:21; background:var(--band);}
 .nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-block:14px;}
 .brand{font-family:var(--display); color:#fff; font-weight:600; font-size:1.25rem; letter-spacing:.18em;}
-.nav-tag{color:var(--on-navy); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;}
+.nav a{color:var(--on-navy); font-size:.8rem; text-decoration:none;}
 
-/* ---- hero ---- */
-.hero{background:
-   radial-gradient(120% 90% at 85% 10%, rgba(184,146,58,.16), transparent 55%),
-   radial-gradient(100% 120% at 0% 100%, rgba(95,168,201,.14), transparent 50%),
-   linear-gradient(160deg, var(--navy), var(--navy-2) 70%, #0A1A3C);
-  color:#fff; position:relative; overflow:hidden;}
-.hero .wrap{padding-block:clamp(48px,11vw,104px);}
-.hero .eyebrow{color:var(--gold-soft);}
-.hero h1{color:#fff; font-size:clamp(2.1rem,7vw,3.9rem); margin:16px 0 0; max-width:16ch;}
-.hero .lede{color:var(--on-navy); font-size:clamp(1.02rem,2.4vw,1.2rem); margin-top:20px; max-width:52ch;}
-.hero .status{display:inline-flex; align-items:center; gap:9px; margin-top:28px; font-size:.82rem;
-  color:#EAF0FA; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
-  padding:8px 14px; border-radius:999px;}
-.dot{width:8px; height:8px; border-radius:50%; background:var(--gold-soft); box-shadow:0 0 0 4px rgba(217,178,90,.25);}
-.hero .cta{margin-top:30px; display:flex; gap:12px; flex-wrap:wrap;}
-.btn{display:inline-block; font-weight:600; font-size:.92rem; padding:12px 22px; border-radius:7px; text-decoration:none;}
-.btn-gold{background:var(--gold); color:#1a1405;}
-.btn-ghost{border:1px solid rgba(255,255,255,.3); color:#fff;}
-.hero-edge{height:5px; background:linear-gradient(90deg, var(--navy), var(--gold) 55%, var(--gold-soft));}
+.head{background:var(--band); color:#fff;}
+.head .wrap{padding-block:clamp(36px,8vw,64px);}
+.head .eyebrow{font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-soft); font-weight:600;}
+.head h1{font-family:var(--display); font-weight:600; font-size:clamp(1.9rem,6vw,2.8rem); margin:12px 0 0; color:#fff;}
+.head p{color:var(--on-navy); margin-top:12px; font-size:.95rem;}
+.edge{height:5px; background:linear-gradient(90deg, var(--navy), var(--gold) 55%, var(--gold-soft));}
 
-/* ---- section scaffold ---- */
-section{padding-block:clamp(44px,8vw,78px);}
-.sec-head{max-width:60ch;}
-.sec-head h2{font-size:clamp(1.6rem,4.5vw,2.35rem); margin-top:10px;}
-.sec-head p{color:var(--muted); margin-top:14px; font-size:1.02rem;}
+main{padding-block:clamp(32px,6vw,56px);}
+h2{font-family:var(--display); font-weight:600; font-size:1.3rem; color:var(--navy); margin:34px 0 10px;}
+:root[data-theme="dark"] h2, :root:not([data-theme="light"]) h2{color:var(--gold-soft);}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:var(--gold-soft);}}
+h2:first-of-type{margin-top:0;}
+p{margin:0 0 12px;}
+ul{margin:0 0 14px; padding-left:22px;}
+li{margin-bottom:6px;}
+.muted{color:var(--muted); font-size:.92rem;}
+.note{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--gold);
+  border-radius:9px; padding:16px 18px; margin:18px 0; font-size:.95rem;}
+.tbl-wrap{overflow-x:auto; margin:10px 0 16px; -webkit-overflow-scrolling:touch;}
+.tbl{width:100%; min-width:340px; border-collapse:collapse; font-size:.92rem;}
+.tbl th,.tbl td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+.tbl th{color:var(--navy); font-weight:600;}
+:root[data-theme="dark"] .tbl th, :root:not([data-theme="light"]) .tbl th{color:var(--gold-soft);}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tbl th{color:var(--gold-soft);}}
 
-/* ---- what it does: three cards ---- */
-.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px;}
-.card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:24px; min-width:0;}
-.card .k{font-family:var(--display); font-size:1.15rem; color:var(--navy); margin-bottom:8px;}
-:root[data-theme="dark"] .card .k, :root:not([data-theme="light"]) .card .k{color:var(--gold-soft);}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .card .k{color:var(--gold-soft);}}
-.card p{color:var(--muted); font-size:.95rem;}
-
-/* ---- cycle (numbered steps) ---- */
-.cycle{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px;}
-.step{position:relative; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px 20px; min-width:0;}
-.step .n{font-family:var(--display); font-size:1.5rem; color:var(--gold); line-height:1;}
-.step h3{font-size:1.05rem; margin:10px 0 6px; color:var(--ink);}
-.step p{color:var(--muted); font-size:.92rem;}
-
-/* ---- liquidity feature band ---- */
-.feature{background:var(--band); color:#fff;}
-.feature .inner{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;}
-.feature h2{color:#fff; font-size:clamp(1.6rem,4.5vw,2.3rem);}
-.feature .eyebrow{color:var(--green-bg);}
-.feature p{color:var(--on-navy); margin-top:16px; font-size:1.05rem;}
-.feature .pull{margin-top:22px; border-left:3px solid var(--gold); padding-left:18px;
-  font-family:var(--display); font-size:1.3rem; color:#fff; line-height:1.3;}
-.liq-panel{border-radius:14px; border:1px solid rgba(255,255,255,.14);
-  background:linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-  padding:30px 28px; max-width:100%;}
-.liq-panel .liq-stat{font-family:var(--display); font-size:1.5rem; color:var(--gold-soft); line-height:1.1;}
-.liq-panel p{color:var(--on-navy); margin-top:8px; font-size:.98rem;}
-.liq-rule{height:1px; background:rgba(255,255,255,.14); margin:22px 0;}
-
-/* ---- facts row ---- */
-.facts{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:30px;}
-.fact{border-top:3px solid var(--gold); padding-top:14px;}
-.fact .big{font-family:var(--display); font-size:1.9rem; color:var(--navy); font-variant-numeric:tabular-nums;}
-:root[data-theme="dark"] .fact .big, :root:not([data-theme="light"]) .fact .big{color:var(--gold-soft);}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fact .big{color:var(--gold-soft);}}
-.fact .lab{color:var(--muted); font-size:.9rem; margin-top:4px;}
-
-/* ---- status / honesty ---- */
-.status-card{background:var(--green-bg); border:1px solid var(--line); border-left:5px solid var(--green);
-  border-radius:12px; padding:24px 26px; margin-top:30px;}
-.status-card h3{font-family:var(--body); font-weight:700; font-size:1rem; color:var(--green); margin-bottom:8px;}
-.status-card p{color:var(--ink); font-size:.98rem;}
-.status-card ul{margin:12px 0 0; padding-left:20px; color:var(--muted); font-size:.95rem;}
-.status-card li{margin-bottom:5px;}
-
-/* ---- corporate / contact ---- */
-.corp{display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:28px;}
-.corp .block h3{font-family:var(--body); font-weight:700; font-size:.78rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--gold); margin-bottom:10px;}
-.corp .block p{color:var(--muted); font-size:.97rem;}
-.corp a{color:var(--navy); text-decoration:none; border-bottom:1px solid var(--line);}
-:root[data-theme="dark"] .corp a, :root:not([data-theme="light"]) .corp a{color:var(--gold-soft);}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .corp a{color:var(--gold-soft);}}
-
-/* ---- footer ---- */
 .foot{background:var(--band); color:var(--on-navy);}
-.foot .wrap{padding-block:30px; display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; font-size:.82rem;}
-.foot .brand{font-size:1rem;}
-
-/* ---- responsive ---- */
-@media (max-width:820px){
-  .grid3,.cycle,.facts{grid-template-columns:1fr 1fr;}
-  .feature .inner{grid-template-columns:1fr;}
-  .corp{grid-template-columns:1fr;}
-}
-@media (max-width:520px){
-  .grid3,.cycle,.facts{grid-template-columns:1fr;}
-}
-@media (max-width:380px){
-  .nav-tag{display:none;}
-}
+.foot .wrap{padding-block:26px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; font-size:.8rem;}
+.foot a{color:var(--on-navy);}
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important;}}
-a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold-soft); outline-offset:3px;}
-section[id]{scroll-margin-top:70px;}
+a:focus-visible{outline:2px solid var(--gold-soft); outline-offset:3px;}
 </style>
 </head>
 <body>
 
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="index.html" style="text-decoration:none;">MOOZARS</a>
-  <span class="nav-tag">Real-World&nbsp;Assets</span>
+  <a class="brand" href="/" style="text-decoration:none;color:#fff;">MOOZARS</a>
+  <a href="/">&larr; Home</a>
 </div></nav>
-<section><div class="wrap" style="max-width:760px;">
-<span class="eyebrow">Legal</span>
-<h1 style="font-size:clamp(1.8rem,5vw,2.6rem);margin:10px 0 6px;">Privacy Policy</h1>
-<p style="color:var(--muted);font-size:.9rem;">Last updated: October 2026</p>
-<div class="status-card" style="margin-top:24px;"><h3>In short</h3><p>This website only shows information. It has no sign-in, no forms and no advertising. We only hold personal data if you email us.</p></div>
-<div class="corp" style="grid-template-columns:1fr; gap:26px; margin-top:34px;">
-<div class="block"><h3>Who we are</h3><p>MOOZARS LTD, registered in England &amp; Wales, no. 14157790. Registered office: Aston House, Newcastle upon Tyne, NE5 1NB, United Kingdom. We are the controller of any personal data described here. Contact: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;">&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;</a>.</p></div>
-<div class="block"><h3>What we collect</h3><p>If you email us, we receive your email address and whatever you choose to tell us. We use it only to reply to you and to keep a record of the conversation. We do not sell it or share it for marketing.</p></div>
-<div class="block"><h3>Website visits</h3><p>This site does not use advertising or tracking cookies. Our hosting provider, Vercel Inc., may process technical data such as IP address and browser type in server logs to deliver and secure the site.</p></div>
-<div class="block"><h3>Email</h3><p>Our email is provided by Zoho Corporation, which stores and processes messages on our behalf.</p></div>
-<div class="block"><h3>How long we keep it</h3><p>We keep correspondence only as long as needed to deal with your enquiry and meet our legal and record-keeping obligations, then delete it.</p></div>
-<div class="block"><h3>Your rights</h3><p>Under UK data protection law you can ask to see, correct or delete the personal data we hold about you, or object to how we use it. Email us to do so. If you are unhappy with how we handle your data, you can complain to the Information Commissioner&rsquo;s Office at <a href="https://ico.org.uk">ico.org.uk</a>.</p></div>
-<div class="block"><h3>Changes</h3><p>We may update this policy, and will change the date above when we do.</p></div>
-</div>
-<p style="margin-top:34px;"><a href="index.html">&larr; Back to the homepage</a></p>
-</div></section>
+
+<header class="head">
+  <div class="wrap">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p>How MOOZARS LTD handles personal data. Last updated: October 2026.</p>
+  </div>
+</header>
+<div class="edge"></div>
+
+<main><div class="wrap">
+
+  <p>This policy explains what personal data MOOZARS LTD (&ldquo;MOOZARS&rdquo;, &ldquo;we&rdquo;) collects, why, and what rights you have. MOOZARS LTD is the data controller.</p>
+  <ul class="muted">
+    <li>Registered in England &amp; Wales, company no. 14157790.</li>
+    <li>Registered office: Aston House, Newcastle upon Tyne, NE5 1NB, United Kingdom.</li>
+    <li>Contact: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;">&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;</a></li>
+  </ul>
+
+  <div class="note">This website only displays information. It has no accounts, sign-in, forms, advertising or tracking cookies. We hold personal data about you only if you choose to email us.</div>
+
+  <h2>What we collect, and why</h2>
+  <div class="tbl-wrap"><table class="tbl">
+    <tr><th>Data</th><th>Source</th><th>Why</th></tr>
+    <tr><td>Your email address and anything you include in your message</td><td>You, when you email us</td><td>To reply to you and keep a record of the correspondence</td></tr>
+    <tr><td>Technical data such as IP address, browser type and time of visit</td><td>Automatically, in server logs, when you visit the site</td><td>To keep the site running securely and diagnose problems</td></tr>
+  </table></div>
+
+  <h2>Lawful basis</h2>
+  <p>We process this data under the UK GDPR on the basis of our <strong>legitimate interests</strong> &mdash; to respond to enquiries, maintain a record of correspondence, and keep the website secure and available. Where you email us, you do so voluntarily, and you can ask us to delete the correspondence at any time.</p>
+
+  <h2>Who processes it for us</h2>
+  <p>We use two service providers who process data on our behalf under written terms:</p>
+  <ul>
+    <li><strong>Vercel Inc.</strong> &mdash; website hosting and server logs.</li>
+    <li><strong>Zoho Corporation</strong> &mdash; email.</li>
+  </ul>
+
+  <h2>International transfers</h2>
+  <p>These providers may process data on servers outside the United Kingdom, including in the United States. Where that happens, the transfer is protected by the safeguards UK data-protection law requires &mdash; such as the UK International Data Transfer Agreement, the UK Addendum to the EU Standard Contractual Clauses, or an equivalent approved mechanism &mdash; so your data receives an essentially equivalent level of protection wherever it is processed.</p>
+
+  <h2>How long we keep it</h2>
+  <p>We keep email correspondence only as long as needed for the matter it concerns, and then for a reasonable period for our own records &mdash; normally no longer than 24 months after our last contact, unless a longer period is required by law. Server logs are kept only for a short period for security and diagnostics, then deleted or overwritten in the ordinary course.</p>
+
+  <h2>How we protect it</h2>
+  <p>We use reputable service providers, access the data only on a need-to-know basis, and apply appropriate technical and organisational measures to protect it. No method of transmission or storage is completely secure, but we take reasonable steps to guard against loss, misuse and unauthorised access. In the event of a personal-data breach that is likely to risk your rights, we will act in line with our obligations under UK data-protection law, including notifying the Information Commissioner&rsquo;s Office (ICO) where required.</p>
+
+  <h2>Your rights</h2>
+  <p>Under UK data-protection law you have the right to access the personal data we hold about you, to have it corrected or deleted, to object to or restrict our use of it, and to data portability where it applies. To exercise any of these, email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;">&#105;&#110;&#102;&#111;&#64;&#109;&#111;&#111;&#122;&#97;&#114;&#115;&#46;&#99;&#111;&#109;</a>. We may need to confirm your identity before acting, and we will respond within one month. If you are not satisfied, you can complain to the ICO at <a href="https://ico.org.uk/">ico.org.uk</a>.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy from time to time. The current version is always the one published here, with the &ldquo;last updated&rdquo; date above.</p>
+
+</div></main>
 
 <footer class="foot"><div class="wrap">
-  <span class="brand" style="font-family:var(--display); letter-spacing:.14em;">MOOZARS</span>
-  <span><a href="privacy.html">Privacy Policy</a> &middot; &copy; 2022&ndash;2026 MOOZARS LTD. Registered in England &amp; Wales. This site is for information only and is not an offer or solicitation of investment.</span>
+  <span>&copy; 2022&ndash;2026 MOOZARS LTD. Registered in England &amp; Wales.</span>
+  <a href="/">moozars.com</a>
 </div></footer>
 
 </body>
